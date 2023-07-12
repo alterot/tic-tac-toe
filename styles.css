@@ -1,0 +1,171 @@
+/* Mobile default */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  font-size: 24px;
+}  
+
+body {
+  font-family: 'Shrikhand', cursive;
+  color: #1d3c45;
+  background-color: #fff1e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+}
+
+h1 {
+  text-align: center;
+}
+
+#start-screen {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.input-row label {
+  margin-right: 10px;
+}
+
+.input-row input[type="text"] {
+  width: 175px;
+  padding: 5px;
+  font-size: 0.75rem;
+  border: 2px solid #d2601a;
+  background-color: #fff1e1;
+  color: #1d3c45;
+  /* Additional styles as needed */
+}
+
+#intro {
+  font-size: 0.8rem;
+  margin: 20px;
+  text-align: center;
+}
+
+
+#start-btn {
+  background-color: #fff1e1;
+  border: 1.5px solid #1d3c45;
+  margin-top: 25px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: inherit;
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+#start-btn:hover {
+  background-color: #1d3c45;
+  color: #fff;
+}
+
+#board-container {
+  width: 320px;
+  height: 320px;
+  padding: 20px;
+}
+
+#board {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  background-color: #fff1e1;
+  border: 5px solid #d2601a;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+button.cell {
+  line-height: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: inherit;
+  background-color: #fff1e1;
+  border: 3px solid #d2601a;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#current-player {
+  text-align: center;
+}
+
+#winner {
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff1e1;
+  border: 2px solid #d2601a;
+  padding: 20px;
+  text-align: center;
+  display: none;
+}
+
+#winner>button {
+  background-color: #fff1e1;
+  border: 1.5px solid #1d3c45;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: inherit;
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+#winner>button:hover {
+  background-color: #1d3c45;
+  color: #fff;
+}
+
+#winner.show {
+  display: block;
+}
+
+/* Desktop */
+
+@media (min-width: 768px) {
+
+  body {
+    font-size: 2rem;
+  }
+
+  #board-container, #start-screen {
+    width: 480px;
+    height: 480px;
+  }
+
+  #board {
+    padding: 20px;
+  }
+
+  button.cell {
+    font-size: 2.5em;
+  }
+
+  #winner {
+    width: 25%;
+  }
+}
