@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
   <title>X O X O</title>
   <link rel="stylesheet" href="styles.css">
@@ -16,11 +17,11 @@
     <p id="intro">Ready for a game of tic-tac-toe with your bestie?</p>
     <div class="input-row">
       <label for="player1">Player 1:</label>
-      <input type="text" id="player1" placeholder="Enter name">
+      <input type="text" id="player1" placeholder="Enter name" maxlength="12">
     </div>
     <div class="input-row">
       <label for="player2">Player 2:</label>
-      <input type="text" id="player2" placeholder="Enter name">
+      <input type="text" id="player2" placeholder="Enter name" maxlength="12">
     </div>
     <button id="start-btn">Start Game</button>
   </div>
@@ -35,8 +36,8 @@
     </div>
 
     <div id="players">
-      <div id="X-info"></div>
-      <div id="O-info"></div>
+      <div class="info" id="player-X"></div>
+      <div class="info" id="player-O"></div>
     </div>
   </div>
 </body>
