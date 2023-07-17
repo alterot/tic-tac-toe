@@ -46,36 +46,41 @@ h1 {
   width: 175px;
   padding: 5px;
   font-size: 0.75rem;
-  border: 2px solid #d2601a;
+  border: 1.5px solid #1d3c45;
+  border-radius: 10px;
   background-color: #fff1e1;
   color: #1d3c45;
-  /* Additional styles as needed */
 }
 
 #intro {
-  font-size: 0.8rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.75rem;
   margin: 20px;
   text-align: center;
 }
 
 
 #start-btn {
-  background-color: #fff1e1;
+  width: 60%;
+  background-color: #1d3c45;
   border: 1.5px solid #1d3c45;
-  margin-top: 25px;
   border-radius: 10px;
+  margin-top: 100px;
   padding: 5px 10px;
-  color: inherit;
+  color: #fff;
   font: inherit;
   font-size: 0.75rem;
+  align-self: center;
 }
 
 #start-btn:hover {
-  background-color: #1d3c45;
+  background-color: #d2601a;
+  border: 1.5px solid #d2601a;
   color: #fff;
 }
 
 #board-container {
+  margin: 0 auto;
   width: 320px;
   height: 320px;
   padding: 20px;
@@ -114,15 +119,33 @@ button.cell {
 
 #winner {
   position: fixed;
-  width: 50%;
+  width: 60%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -80%);
   background-color: #fff1e1;
-  border: 2px solid #d2601a;
-  padding: 20px;
+  border: 4px solid #1d3c45;
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
   display: none;
+}
+
+#continue-btn {
+  margin-top: 10px;
+}
+
+#players {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  text-align: center;
+}
+
+.info {
+  margin: 0 10px;
 }
 
 #winner>button {
@@ -148,13 +171,17 @@ button.cell {
 
 @media (min-width: 768px) {
 
-  body {
-    font-size: 2rem;
-  }
+  html, body {
+    font-size: 36px;
+  } 
 
   #board-container, #start-screen {
     width: 480px;
     height: 480px;
+  }
+
+  .input-row input[type="text"] {
+    width: 250px;
   }
 
   #board {
@@ -166,6 +193,8 @@ button.cell {
   }
 
   #winner {
-    width: 25%;
+    width: 35%;
+    border: 5px solid #1d3c45;
+    padding: 20px;
   }
 }
