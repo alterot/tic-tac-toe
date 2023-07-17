@@ -1,4 +1,3 @@
-
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const player1Input = document.getElementById('player1');
@@ -14,25 +13,25 @@ const createPlayer = (name, symbol) => {
     name,
     symbol,
     wins: 0,
-    element: document.getElementById(`${symbol}-info`),
+    element: document.getElementById(`player-${symbol}`),
   };
 };
 
 const player1 = createPlayer("Player 1", "X", 0);
 const player2 = createPlayer("Player 2", "O", 0);
 
-function updatePlayerInfo(player) {
+function updatePlayerScore(player) {
   player.element.textContent = `${player.name} victories: ${player.wins}`;
 }
 
-//Identify winning player based in symbol in cell. 
+//Identify winning player (based in symbol in cell). 
 function getPlayerBySymbol(symbol) {
   if (player1.symbol === symbol) {
     return player1;
   } else if (player2.symbol === symbol) {
     return player2;
   }
-  return null; //fail safe if there is no match 
+  return null; //fail safe if there is no match (though I can't foresee this scenario)
 }
 
 let currentPlayer = player1;
@@ -75,14 +74,12 @@ const boardElement = document.getElementById('board');
 const createBoard = () => {
 const board = gameBoard.getBoard();
 
+//Create the markup for the board. I use button since I will be interacting by clicking on each cell
 const boardMarkup = board.map((cell, index) => `
   <button class="cell" data-index="${index}">${cell}</button>
 `).join('');
 
 boardElement.innerHTML = boardMarkup;
-
-updatePlayerInfo(player1);
-updatePlayerInfo(player2);
 
 };
 createBoard();
@@ -95,6 +92,9 @@ startBtn.addEventListener('click', () => {
   // Update player names
   player1.name = player1Name;
   player2.name = player2Name;
+
+  updatePlayerScore(player1);
+  updatePlayerScore(player2);
 
   // Hide start screen, show game screen
   startScreen.style.display = 'none';
@@ -110,6 +110,7 @@ const winningCombinations = [
   [0, 4, 8], [2, 4, 6] // Diagonals
 ];
 
+//I added this variable to ba able to "disable" interaction with the board when a winner is displayed
 let gameActive = true
 
 function checkForWin() {
@@ -124,8 +125,8 @@ function checkForWin() {
       setTimeout(() => {
         winnerPlayer.wins++;
 
-        updatePlayerInfo(player1);
-        updatePlayerInfo(player2);
+        updatePlayerScore(player1);
+        updatePlayerScore(player2);
 
         const winner = document.getElementById('winner');
         winner.innerHTML = `<p>${winnerPlayer.name} wins!</p><button id="continue-btn">Continue</button>`;
